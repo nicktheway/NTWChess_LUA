@@ -13,9 +13,10 @@ public:
 	Piece();
 	Piece(enum EColor color);
 	Piece(const Piece& piece);
-	void SetTile(Tile* tile);
+	void SetTile(Tile& tile);
 	enum EPieceType GetType();
 	enum EColor GetColor();
+	Tile* GetTile();
 	virtual bool isPossibleDestination(const Tile* destination) const = 0;
 	~Piece();
 };

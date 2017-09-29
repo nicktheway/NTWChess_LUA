@@ -5,7 +5,7 @@ Pawn::Pawn(enum EColor color) : Piece(color) {
 	type = EPTPawn;
 }
 
-bool Pawn::isPossibleDestination(Tile* destination) const {
+bool Pawn::isPossibleDestination(const Tile* destination) const {
 	if (destination->isEmpty())
 		return true;
 

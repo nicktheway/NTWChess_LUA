@@ -16,7 +16,7 @@ public:
 	Tile(const Tile& tile);
 	enum EColor GetColor();
 	Piece* GetPiece();
-	void SetPiece(Piece* piece);
+	void SetPiece(Piece& piece);
 	struct Position GetPosition();
 	bool isEmpty() const;
 	~Tile();

@@ -28,10 +28,11 @@ Piece::~Piece() {
 
 }
 
-void Piece::SetTile(Tile* tile) {
+void Piece::SetTile(Tile& tile) {
 	//std::cout << "IN PIECE::SetTile\n";
-	this->tile = tile;
-	tile->SetPiece(this);
+	this->tile = &tile;
+	if (tile.GetPiece() != this)
+		tile.SetPiece(*this);
 }
 
 enum EPieceType Piece::GetType() {
@@ -40,4 +41,9 @@ enum EPieceType Piece::GetType() {
 
 enum EColor Piece::GetColor() {
 	return color;
+}
+
+Tile * Piece::GetTile()
+{
+	return tile;
 }

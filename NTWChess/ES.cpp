@@ -58,3 +58,35 @@ string EColorToString(enum EColor color) {
 	}
 	return s;
 }
+
+string EPieceTypeToString(EPieceType type)
+{
+	string s;
+	switch (type)
+	{
+	case EPTPawn:
+		s = "EPTPawn";
+		break;
+	case EPTRook:
+		s = "EPTRook";
+		break;
+	case EPTKnight:
+		s = "EPTKnight";
+		break;
+	case EPTBishop:
+		s = "EPTBishop";
+		break;
+	case EPTQueen:
+		s = "EPTQueen";
+		break;
+	case EPTKing:
+		s = "EPTKing";
+		break;
+	case EPTNothing:
+		s = "EPTNothing";
+		break;
+	default:
+		break;
+	}
+	return s;
+}

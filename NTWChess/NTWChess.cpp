@@ -2,6 +2,7 @@
 #include<string>
 #include "ES.h"
 #include "Tile.h"
+#include "Pawn.h"
 
 using std::cout;
 using std::endl;
@@ -16,15 +17,16 @@ int main()
 	Tile b(pos1, ECWhite);
 	Tile c(pos2, ECWhite);
 
-	//Piece* p = new Pawn(ECWhite);
-	//a.SetPiece(p);
+	Piece* p;
+	Pawn pawn(ECWhite);
 
-	cout << EColorToString(a.GetColor()) << '\n';
-	cout << pos.ToString() << '\n';
-	cout << pos2.ToString() << '\n';
-	pos2 = pos;
-	cout << pos2.ToString() << '\n';
-	cout << (pos == pos2) << endl;
+	p = &pawn;
+	
+	a.SetPiece(*p);
+
+	cout << "In position " << pos.ToString() << " there is a " << EColorToString(a.GetColor()) << " tile with an " << EPieceTypeToString(a.GetPiece()->GetType()) << endl;
+	cout << "In position " << pos2.ToString() << " there is a " << EColorToString(c.GetColor()) << " tile with an " << EPieceTypeToString(c.GetPiece()->GetType()) << endl;
+	cout << pawn.GetTile()->GetPosition().ToString() << endl;
 
 	char ch;
 

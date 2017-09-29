@@ -20,6 +20,7 @@ enum EPieceType {
 	EPTKing,
 	EPTNothing
 };
+string EPieceTypeToString(enum EPieceType type);
 
 struct Position {
 	int letter;
