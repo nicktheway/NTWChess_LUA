@@ -16,3 +16,18 @@ print('Point 2')
 b2:SetTile(a2)
 print(b2.tile==a2)
 print(b2:GetTile().position:toString())
+b1:isPossibleDestination(a1)
+u1 = NoPiece.new()
+u1:isPossibleDestination(a1)
+
+CallPieceFun(b1, a1)
+CallPieceFun(u1, a1)
+print('Point 3')
+
+pon = Piece.new;
+pon = b1
+CallPieceFun(pon, a1)
+pon = u1
+CallPieceFun(pon, a1)
+
+print('END')

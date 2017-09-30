@@ -1,4 +1,5 @@
 #include "NoPiece.h"
+#include <iostream>
 
 NoPiece::NoPiece()
 {
@@ -7,6 +8,7 @@ NoPiece::NoPiece()
 
 bool NoPiece::isPossibleDestination(const Tile& destination) const
 {
+	std::cout << "NoPiece EPD\n";
 	return true;
 }
 

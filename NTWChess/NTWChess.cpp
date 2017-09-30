@@ -3,11 +3,13 @@
 #include "ES.h"
 #include "Tile.h"
 #include "Pawn.h"
+#include "NoPiece.h"
 #include "sol.hpp"
 #include "lua.hpp"
 
 using std::cout;
 using std::endl;
+void CallPieceFun(const Piece& piece,const Tile& tile);
 bool BindDataToLua(sol::state& lua);
 int main()
 {
@@ -50,6 +52,9 @@ int main()
 	return 0;
 }
 
+void CallPieceFun(const Piece& piece, const Tile& tile) {
+	piece.isPossibleDestination(tile);
+}
 
 bool BindDataToLua(sol::state& lua) {
 	
@@ -75,6 +80,7 @@ bool BindDataToLua(sol::state& lua) {
 	lua.new_usertype<Piece>("Piece",
 		"SetTile", &Piece::SetTile,
 		"GetTile", &Piece::GetTile,
+		"isPossibleDestination", &Piece::isPossibleDestination,
 		"color", sol::property(&Piece::GetColor, &Piece::SetColor),
 		"tile", sol::property(&Piece::GetTile, &Piece::SetTile)
 		);
@@ -83,5 +89,11 @@ bool BindDataToLua(sol::state& lua) {
 		sol::constructors<Pawn(enum EColor)>(),
 		sol::base_classes, sol::bases<Piece>()
 		);
+	lua.new_usertype<NoPiece>("NoPiece",
+		sol::constructors<NoPiece>(),
+		sol::base_classes, sol::bases<Piece>()
+		);
+
+	lua["CallPieceFun"] = &CallPieceFun;
 	return true;
 }

@@ -3,7 +3,7 @@
 #include <iostream>
 
 Piece::Piece() {
-	std::cout << "IN PIECE()\n";
+	//std::cout << "IN PIECE()\n";
 	this->type = EPTNothing;
 	this->color = ECUndefined;
 	this->tile = NULL;
