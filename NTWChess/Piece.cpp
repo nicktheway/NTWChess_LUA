@@ -43,6 +43,11 @@ enum EColor Piece::GetColor() {
 	return color;
 }
 
+void Piece::SetColor(EColor color)
+{
+	this->color = color;
+}
+
 Tile * Piece::GetTile()
 {
 	return tile;

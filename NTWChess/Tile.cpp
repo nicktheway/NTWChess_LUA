@@ -44,8 +44,18 @@ struct Position Tile::GetPosition() {
 	return pos;
 }
 
+void Tile::SetPosition(Position pos)
+{
+	this->pos = pos;
+}
+
 enum EColor Tile::GetColor() {
 	return color;
+}
+
+void Tile::SetColor(EColor color)
+{
+	this->color = color;
 }
 
 bool Tile::isEmpty() const {

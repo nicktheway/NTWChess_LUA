@@ -15,9 +15,11 @@ public:
 	Tile(struct Position pos, enum EColor color);
 	Tile(const Tile& tile);
 	enum EColor GetColor();
+	void SetColor(enum EColor color);
 	Piece* GetPiece();
 	void SetPiece(Piece& piece);
 	struct Position GetPosition();
+	void SetPosition(struct Position pos);
 	bool isEmpty() const;
 	~Tile();
 };

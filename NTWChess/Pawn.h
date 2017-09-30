@@ -6,7 +6,7 @@
 class Pawn : public Piece {
 public:
 	Pawn(enum EColor color);
-	virtual bool isPossibleDestination(const Tile* destination) const override;
+	virtual bool isPossibleDestination(const Tile& destination) const override;
 	~Pawn();
 };
 

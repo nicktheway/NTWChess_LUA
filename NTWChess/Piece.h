@@ -16,8 +16,9 @@ public:
 	void SetTile(Tile& tile);
 	enum EPieceType GetType();
 	enum EColor GetColor();
+	void SetColor(enum EColor color);
 	Tile* GetTile();
-	virtual bool isPossibleDestination(const Tile* destination) const = 0;
+	virtual bool isPossibleDestination(const Tile& destination) const = 0;
 	~Piece();
 };
 

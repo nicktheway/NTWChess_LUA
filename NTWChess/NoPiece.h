@@ -7,7 +7,7 @@ class NoPiece :
 {
 public:
 	NoPiece();
-	virtual bool isPossibleDestination(const Tile* destination) const override;
+	virtual bool isPossibleDestination(const Tile& destination) const override;
 	~NoPiece();
 };
 

@@ -69,13 +69,18 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>D:\Νίκος\Έγγραφα\Projects\Lua_Projects\lua-5.3.4\src;D:\Νίκος\Έγγραφα\Projects\Lua_Projects\sol2-2.18.3;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -111,19 +116,84 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lapi.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lauxlib.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lcode.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lctype.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\ldebug.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\ldo.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lfunc.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lgc.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\llex.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\llimits.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lmem.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lobject.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lopcodes.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lparser.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lprefix.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lstate.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lstring.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\ltable.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\ltm.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lua.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lua.hpp" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\luaconf.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lualib.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lundump.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lvm.h" />
+    <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lzio.h" />
     <ClInclude Include="ES.h" />
+    <ClInclude Include="lua.hpp" />
     <ClInclude Include="NoPiece.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="Piece.h" />
     <ClInclude Include="Tile.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lapi.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lauxlib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lbaselib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lbitlib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lcode.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lcorolib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lctype.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\ldblib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\ldebug.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\ldo.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\ldump.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lfunc.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lgc.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\linit.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\liolib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\llex.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lmathlib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lmem.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\loadlib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lobject.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lopcodes.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\loslib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lparser.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lstate.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lstring.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lstrlib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\ltable.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\ltablib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\ltm.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lua.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\luac.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lundump.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lutf8lib.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lvm.c" />
+    <ClCompile Include="..\..\..\Lua_Projects\lua-5.3.4\src\lzio.c" />
     <ClCompile Include="ES.cpp" />
     <ClCompile Include="NoPiece.cpp" />
     <ClCompile Include="NTWChess.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Tile.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LuaScripts\main.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
