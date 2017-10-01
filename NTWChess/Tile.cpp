@@ -35,9 +35,9 @@ Piece* Tile::GetPiece() {
 
 void Tile::SetPiece(Piece& piece) {
 	//std::cout << "IN TILE::SetPiece\n";
-	this->piece = &piece;
+	*this->piece = piece;
 	if (piece.GetTile() != this)
-	piece.SetTile(*this);
+		piece.SetTile(*this);
 }
 
 struct Position Tile::GetPosition() {

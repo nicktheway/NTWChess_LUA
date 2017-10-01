@@ -10,7 +10,8 @@
 using std::cout;
 using std::endl;
 void CallPieceFun(const Piece& piece,const Tile& tile);
-bool BindDataToLua(sol::state& lua);
+int luaopen_NTWChess(sol::state& lua);
+
 int main()
 {
 	struct Position pos(0, 1);
@@ -27,6 +28,7 @@ int main()
 	p = &pawnW;
 	
 	a.SetPiece(*p);
+	
 	b.SetPiece(pawnB);
 	cout << "In position " << pos.ToString() << " there is a " << EColorToString(a.GetColor()) << " tile with an " 
 		<< EPieceTypeToString(a.GetPiece()->GetType()) << " of color " << EColorToString(a.GetPiece()->GetColor())  << endl;
@@ -39,12 +41,12 @@ int main()
 	cout << a.isEmpty() << " and b: " << b.isEmpty() << " and c: " << c.isEmpty() << endl;
 	cout << pawnW.isPossibleDestination(c) << endl;
 
-
+	
 	sol::state lua;
 	sol::load_result script1 = lua.load_file("LuaScripts/main.lua");
-	BindDataToLua(lua);
+	luaopen_NTWChess(lua);
 	script1();
-
+	
 	char ch;
 
 	std::cin >> ch;
@@ -56,7 +58,7 @@ void CallPieceFun(const Piece& piece, const Tile& tile) {
 	piece.isPossibleDestination(tile);
 }
 
-bool BindDataToLua(sol::state& lua) {
+int luaopen_NTWChess(sol::state& lua) {
 	
 	lua.open_libraries(sol::lib::base, sol::lib::package);
 	
@@ -95,5 +97,5 @@ bool BindDataToLua(sol::state& lua) {
 		);
 
 	lua["CallPieceFun"] = &CallPieceFun;
-	return true;
+	return 0;
 }

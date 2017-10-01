@@ -114,6 +114,9 @@
     <ClInclude Include="..\..\..\Lua_Projects\lua-5.3.4\src\lzio.h">
       <Filter>Resource Files\Lua</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\Lua_Projects\sol2-2.18.3\sol.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Tile.cpp">
