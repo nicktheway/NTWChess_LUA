@@ -30,7 +30,7 @@ Piece::~Piece() {
 
 void Piece::SetTile(Tile& tile) {
 	//std::cout << "IN PIECE::SetTile\n";
-	*this->tile = tile;
+	this->tile = &tile;
 	if (tile.GetPiece() != this)
 		tile.SetPiece(*this);
 }
